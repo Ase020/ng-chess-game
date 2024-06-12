@@ -8,10 +8,9 @@
         light: !isSquareDark(x, y),
         'selected-square': isSquareSelected(x, y)
       }"
-      (click)="selectingPiece(x, y)"
+      (click)="move(x, y)"
     >
       <div
-        class=""
         [ngClass]="{ 'safe-square': isSquareSafeForSelectedPiece(x, y) }"
       ></div>
       <img
