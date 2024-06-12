@@ -1,0 +1,7 @@
+<div class="chess-board">
+  <div class="row" *ngFor="let row of chessBoardView; let x = index">
+    <div class="square" *ngFor="let piece of row; let y = index">
+      {{ x + "," + y }}
+    </div>
+  </div>
+</div>
