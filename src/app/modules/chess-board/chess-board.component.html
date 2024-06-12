@@ -1,7 +1,25 @@
 <div class="chess-board">
   <div class="row" *ngFor="let row of chessBoardView; let x = index">
-    <div class="square" *ngFor="let piece of row; let y = index">
-      {{ x + "," + y }}
+    <div
+      class="square"
+      *ngFor="let piece of row; let y = index"
+      [ngClass]="{
+        dark: isSquareDark(x, y),
+        light: !isSquareDark(x, y),
+        'selected-square': isSquareSelected(x, y)
+      }"
+      (click)="selectingPiece(x, y)"
+    >
+      <div
+        class=""
+        [ngClass]="{ 'safe-square': isSquareSafeForSelectedPiece(x, y) }"
+      ></div>
+      <img
+        [src]="pieceImagePaths[piece]"
+        [alt]="piece"
+        class="piece"
+        *ngIf="piece"
+      />
     </div>
   </div>
 </div>
